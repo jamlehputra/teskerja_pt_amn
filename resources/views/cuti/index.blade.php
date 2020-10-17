@@ -3,7 +3,7 @@
 @section('content')
 	<div class="card shadow">
 		<div class="card-header border-0">
-			<h3 class="float-left " style="padding-top:0.5%">Data Absen</h3>											
+			<h3 class="float-left " style="padding-top:0.5%">Data Absens</h3>											
 				<a href="{{ route('cuties.create') }}" class="btn btn-primary float-right">CREATE</a>
 		</div>				
 		<div class="col-md-12">
