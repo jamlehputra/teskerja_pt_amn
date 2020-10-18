@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
   <link href="{{asset('admin/assets/js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet" />
+  <link href="{{asset('admin/assets/js/plugins/@fortawesome/fontawesome-free/css/fontawesome.min.css')}}" rel="stylesheet" />
   <link href="{{asset('admin/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{asset('admin/assets/css/argon-dashboard.css?v=1.1.0')}}" rel="stylesheet" />

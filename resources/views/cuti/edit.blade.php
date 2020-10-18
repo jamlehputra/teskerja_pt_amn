@@ -3,7 +3,7 @@
 @section('content')
 	<div class="card shadow">
 		<div class="card-header border-0">
-			<h2 class="float-left" style="padding-top:0.5%">Buat Cuti</h3>															
+			<h2 class="float-left" style="padding-top:0.5%">Edit Cuti</h3>															
         </div>	
         <form action="{{ route('cuties.update',$cuti->id) }}" method="post" enctype="multipart/form-data">
             @method('PUT')
@@ -73,8 +73,9 @@
                             @endforeach             
                           </table> 
                           <div class="col-md-12">
-                            <div class="form-group focused">
-                              <button type="submit" class="btn btn-primary float-right">Save</button>
+                            <div class="form-group focused float-right mt-3">
+                              <a href="{{ route('cuties.index') }}" class="btn btn-light">Back</a>
+                              <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                           </div>
                      </div>

@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\Cuti;
 use App\Rincian;
-use DB;
 use App\User;
 
 class CutiController extends Controller
@@ -26,7 +25,7 @@ class CutiController extends Controller
 
         $users = User::all();
         return view('cuti.index', compact('cuti', 'users'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i');
     }
 
     public function create()
@@ -48,26 +47,24 @@ class CutiController extends Controller
                 'user_id' => $user,
                 'request_date' => $request->request_date,                
                 'keterangan' => $request->keterangan,                               
-            ]);            
-        // $request->validate([
-            
-        // ]);
-     
+            ]);                   
         foreach ($request->moreFields as $key => $value) {
             Rincian::create( $value + ['cuti_id' => $lastId->id]);
         }
             
         return redirect()->route('cuties.detail',[$lastId->id])
-                        ->with('success','Cuti Berhasil Dibuat.');
+                        ->with('success','Cuti created successfully.');
     }
+
     public function detail($id)
     {
-        $cuti = Cuti::where('id', $id)->get();
+        $cuti = Cuti::where('id', $id)->first();
         $detail = Rincian::where('cuti_id', $id)->get();
         return view('cuti.detail',compact('detail', 'cuti'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
         
     }
+
     public function edit($id)
     {
         $cuti = Cuti::where('id', $id)->first();
@@ -76,6 +73,7 @@ class CutiController extends Controller
         return view('cuti.edit',compact('detail', 'cuti'))
         ->with('i', (request()->input('page', 1) - 1) * 5);        
     }
+
     public function update(Request $request, $id)
     {
         $cuti = Cuti::find($id);
@@ -103,8 +101,9 @@ class CutiController extends Controller
         }
             
         return redirect()->route('cuties.index')
-                        ->with('success','Cuti Berhasil Dibuat.');
+                        ->with('success','Cuti updated successfully.');
     }
+    
     public function filter(Request $request)
     {
         // dd($request['keterangan']);

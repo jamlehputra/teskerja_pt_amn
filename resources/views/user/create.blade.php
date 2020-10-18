@@ -13,7 +13,6 @@
                    <div class="row">
                      <div class="col-md-12">
                        <div class="form-group focused">
-                        {{-- class="form-control form-control-alternative" --}}
                          <label class="form-control-label">Nama</label>
                          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                          @if ($errors->has('name'))
@@ -23,10 +22,11 @@
                      </div>
                      <div class="col-md-12">
                       <label class="form-control-label">Jabatan</label>
-                        <select name="role" id="role" class="form-control @error('role') is-invalid @enderror" required autocomplete="role" autofocus>
+                        <select name="role" id="role" class="form-control @error('role') is-invalid @enderror" required autocomplete="role" autofocus value="{{ old('role') }}">
                             <option value="" >Pilih Jabatan</option>
                             <option value="pegawai">Pegawai</option>
                             <option value="hrd">HRD</option>
+                            <option value="admin">Admin</option>
                         </select>                                
 
                         @error('role')

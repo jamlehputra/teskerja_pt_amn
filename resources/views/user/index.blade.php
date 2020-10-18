@@ -7,6 +7,14 @@
 				<a href="{{ url('user/create') }}" class="btn btn-primary float-right">CREATE</a>
 		</div>					
 		<div class="container">
+		@if ($message = Session::get('success'))
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>{{ $message }}</strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+		@endif
 		<div class="table-responsive myTable" id="myTable">		
 		<table class="table align-items-center table-flush">
 			<thead class="thead-light">
@@ -15,7 +23,6 @@
 				<th scope="col">Tanggal Request</th>
 				<th scope="col">Requester</th>				
 				<th scope="col">Keterangan</th>
-				<th scope="col">Action</th>
 			</tr>
 			</thead>
 			@foreach ($user as $item)

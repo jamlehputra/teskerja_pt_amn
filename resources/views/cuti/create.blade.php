@@ -61,8 +61,9 @@
                             </tr>  
                           </table> 
                           <div class="col-md-12">
-                            <div class="form-group focused">
-                              <button type="submit" class="btn btn-primary float-right">Save</button>
+                            <div class="form-group focused  float-right mt-3">
+                              <a href="{{ route('cuties.index') }}" class="btn btn-light">Back</a>
+                              <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                           </div>
                      </div>

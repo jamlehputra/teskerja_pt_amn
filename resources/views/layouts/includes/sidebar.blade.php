@@ -6,7 +6,7 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand pt-0" href="">
-      <img src="{{asset('admin/assets/img/brand/blue.png')}}">
+      <img src="{{asset('admin/assets/img/brand/logo_amn.png')}}">
     </a>      
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
@@ -14,11 +14,15 @@
     <!-- Navigation -->
     <ul class="navbar-nav">
       <li class="nav-item  class=" active>
-        <a class=" nav-link active " href="{{ route('cuties.index')}}"> <i class="ni ni-tv-2 text-primary"></i> List Cuti
+        <a class=" nav-link active " href="{{ route('cuties.index')}}">
+           <i class="ni ni-tv-2 text-orange"> </i> List Cuti
         </a>
-      </li>                  
-      <li class="nav-item  class=" active>
-      <a class=" nav-link active " href="{{ route('account.index')}}"> <i class="ni ni-single-02 text-primary"></i> Data User
+      </li>       
+      @if (Auth::user()->role == 'admin')
+      <a class=" nav-link active " href="{{ route('account.index')}}"> 
+        <i class="ni ni-single-02 text-orange"> </i> Data User
+      </a>          
+      @endif           
         </a>
       </li>                  
     </ul>       

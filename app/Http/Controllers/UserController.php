@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $user = User::orderBy('id', 'DESC')->paginate(5);
         return view('user.index', compact('user'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i');
     }
 
     public function create()
@@ -22,12 +22,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([ 
-            // 'name' => ['required', 'string', 'max:255'],
-            // 'role' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
-
+        $request->validate([             
             'name' => 'required',           
             'role' => 'required', 
             'email' => 'required|unique:users|email',
@@ -41,6 +36,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
             ]); 
             
-        return redirect('user/index');
+        return redirect('user/index')
+                ->with('success','User created successfully.');
     }
 }
