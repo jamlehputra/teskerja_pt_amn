@@ -3,7 +3,7 @@
 @section('content')
 	<div class="card shadow">
 		<div class="card-header border-0">
-			<h2 class="float-left" style="padding-top:0.5%">Buat Cuti</h3>															
+			<h2 class="float-left" style="padding-top:0.5%">Create User</h3>															
         </div>	
         <form action=" {{ url('user/store') }}" method="post">
             @csrf

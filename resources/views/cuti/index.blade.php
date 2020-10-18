@@ -17,16 +17,18 @@
 					<label for="inputZip">End Date</label>
 					<input type="date" name="end_date" class="form-control" id="end_date">
 				  </div>
-				  <div class="form-group col-md-3">
-					<label for="inputCity">Request</label>
-					<select name="user_id" class="form-control">
-						@foreach ($users as $user)
-							<option value="{{$user->id}}">
-								{{ $user->name }}
-							</option>
-						@endforeach
-					</select>
-				  </div>
+				  	@if (in_array(Auth::user()->role,['admin','hrd']))
+					  <div class="form-group col-md-3">
+						<label for="inputCity">Request</label>
+						<select name="user_id" class="form-control">
+							@foreach ($users as $user)
+								<option value="{{$user->id}}">
+									{{ $user->name }}
+								</option>
+							@endforeach
+						</select>
+					  </div>					
+					@endif 
 				  <div class="form-group col-md-3">
 					<label for="inputCity">Keterangan</label>
 					<input type="text" name="keterangan" class="form-control" id="start_date">
